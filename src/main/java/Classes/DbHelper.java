@@ -1,32 +1,47 @@
 package Classes;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.mongodb.Block;
 import com.mongodb.MongoClientURI;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Collation;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DbHelper {
     MongoClientURI uri = new MongoClientURI("mongodb+srv://bobin13:bobin123@cluster0.wi0uk9y.mongodb.net/?retryWrites=true&w=majority");
-
-    public String connect(String input) {
+    ArrayList<String> list = new ArrayList<>();
+    Gson g;
+    String tempString;
+    public JsonArray connect(String input) {
         try(MongoClient mongoClient = new MongoClient(uri)) {
             MongoDatabase db = mongoClient.getDatabase("tims_app");
             MongoCollection<Document> collection = db.getCollection("stores");
             Document query = new Document("city",input);
 
-            //Document result = "";
-            // collection.find(query).iterator().next();
-            //System.out.println(result.toString());
-            Bson filter = Filters.and(Filters.gt("city",input));
-            collection.find(filter).forEach((Block<? super Document>) doc -> System.out.println(doc.toJson()));
+            list.clear();
+            g = new Gson();
+            JsonObject object = new JsonObject();
+            JsonArray array = new JsonArray();
+
             for(Document d : collection.find(query)){
-                System.out.println(":: "+d);
+                tempString = g.toJson(d);
+                System.out.println(tempString);
+
+                //com.mongodb.util.JSON.serialize(d);
+                array.add(tempString);
+
             }
-            return "sss";
+            return array;
+
         }
     }
 
@@ -47,7 +62,7 @@ public class DbHelper {
 
     }
 
-
+    //overloaded constructor
     public boolean insert(String name,String address,String city,int rating,boolean hasOutlets,int hotness){
         try{
 

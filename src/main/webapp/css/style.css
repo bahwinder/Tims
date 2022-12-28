@@ -6,7 +6,37 @@ body{
 	color: white;
 	height: 100%;
 	background-image: linear-gradient(#42275a,#734b6d);
+	font-size: 1.5em;
 
+}
+.content-table{
+	border-collapse: collapse;
+	margin: 25px 0;
+	font-size: 0.7em;
+	min-width: 400px;
+	width: 100%;
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+.content-table thead tr{
+	background-color: #ffffff;
+	text-align: left;
+	font-weight: bold;
+	color: #42275a;
+}
+.content-table td{
+	padding: 12px 15px;
+}
+.content-table tbody tr{
+	border-bottom: 1px solid #dddddd;
+	text-align: left;
+}
+.content-table tbody tr:nth-of-type(even){
+	background-color: #42274f;
+}
+.content-table tbody tr:last-of-type{
+	border-bottom: 2px solid #ffffff;
 }
 .btnSearch{
 	width: 50%;
@@ -17,9 +47,4 @@ body{
 	width: 95%;
 	height: 30px;
 	margin: 5px;
-}
-#listTable{
-
-	border: wheat solid;
-
 }

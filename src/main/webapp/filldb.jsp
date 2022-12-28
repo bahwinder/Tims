@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fill Database!</title>
 </head>
 <body>
-    <div>
-        <input type="text" id="name" placeholder="Name.." required><br>
-        <input type="text" id="address" placeholder="Address" required><br>
-        <input type="text" id="city" placeholder="City.." required><br>
-        <input type="text" id="rating" placeholder="Rating.. Out of 10!" required><br>
-        <input type="text" id="powerOutlets" placeholder="Does it have power outlets?"><br>
-        <input type="text" id="hotness" placeholder="How hot was it?"><br><br>
-        <input type="button" id="btnSubmit" value="Add to DB"><br>
-        <h3 id="alert"></h3>
-    </div>
+
+<form id="inputForm">
+
+    <input type="text" class="inputs" id="name" placeholder="Name.." required><br>
+    <input type="text" class="inputs" id="address" placeholder="Address" required><br>
+    <input type="text" class="inputs" id="city" placeholder="City.." required><br>
+    <input type="text" id="rating" class="inputs" placeholder="Rating.. Out of 10!" required><br>
+    <input type="text" id="powerOutlets" class="inputs" placeholder="Does it have power outlets?"><br>
+    <input type="text" id="hotness" class="inputs" placeholder="How hot was it?"><br><br>
+    <input type="button" id="btnSubmit" class="inputs" value="Add to DB"><br>
+    <h3 id="alert"></h3>
+
+</form>
 </body>
 <style>
     input{
@@ -29,6 +32,7 @@
         background: black;
         color: aliceblue;
         text-align: center;
+        font-size: 2em;
     }
 </style>
 <script>
@@ -47,7 +51,7 @@
 
            if(name != null && rating != null && city != null){
 
-            fetch('http://localhost:8080/Tims_war_exploded/FillDb?name='+name+'&address='+address+'&city='+city+'&rating='+rating,
+            fetch('http://localhost:8080/Tims/FillDb?name='+name+'&address='+address+'&city='+city+'&rating='+rating,
 			{
 				method: "GET",
 				headers : {
@@ -57,7 +61,7 @@
 			}
 		)
 		.then(res => res.json())
-        .then(res => console.log(JSON.stringify(res)));
+        .then(res => document.getElementById('inputForm').reset());
 
            }
 

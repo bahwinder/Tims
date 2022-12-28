@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Document</title>
+    <title>Find Your Tea!</title>
 </head>
 <body>
 <header>
@@ -15,20 +15,24 @@
 </header>
 
 <div >
-    <input id="textFieldSearch" type="text" class="input" value = "Exeter" placeholder="Enter City..."><br>
+    <input id="textFieldSearch" type="text" class="input" value = "" placeholder="Enter City..."><br>
     <input id="btnSearch" type="submit" class="btnSearch" value="Search!" >
 </div>
 
-<div>
-    <table id="listTable">
-        <tr>
-            <th>Name</th>
-            <th>City</th>
-            <th>Rating</th>
-            <th>Address</th>
-            <th>Power Outlets</th>
-            <th>Hotness</th>
-        </tr>
+<div id="tableDiv">
+    <table id="listTable" class="content-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Rating</th>
+                <th>City</th>
+                <th>Address</th>
+
+            </tr>
+        </thead>
+            <tbody>
+
+            </tbody>
 
     </table>
 </div>
