@@ -1,26 +1,34 @@
 window.addEventListener('load', function () {
 	const table = document.getElementById('listTable');
-	let row;
+	document.getElementById("loadingText").style.display = "none";
+	table.style.display="none";
 	//Search Button click function
 	document.getElementById("btnSearch").addEventListener("click",function(){
-
-		var inputString = document.getElementById("textFieldSearch").value;
+		let inputString = document.getElementById("textFieldSearch").value;
 		console.log(inputString);
+		if(inputString.length >= 3){
 
-		fetch('http://10.0.0.225:8080/Tims/Search?input='+inputString.toLowerCase(),
-			{
-				method: "GET",
-				headers : {
-					'Content-Type' : 'application/json'
+			document.getElementById("loadingText").style.display = "initial";
+
+
+			fetch('http://localhost:8080/Tims/Search?input='+inputString.toLowerCase(),
+				{
+					method: "GET",
+					headers : {
+						'Content-Type' : 'application/json'
+					}
+
 				}
+			)
+				.then(res => res.json())
+				.then(data => {
+					console.log(data);
+					fillTable(data);
+					document.getElementById("loadingText").style.display = "none";
+					table.style.display="initial";
+				});
 
-			}
-		)
-		.then(res => res.json())
-		.then(data => {
-			console.log(data);
-			fillTable(data);
-		});
+		}
 
 
 		});

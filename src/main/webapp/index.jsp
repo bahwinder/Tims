@@ -18,7 +18,8 @@
     <input id="textFieldSearch" type="text" class="input" value = "" placeholder="Enter City..."><br>
     <input id="btnSearch" type="submit" class="btnSearch" value="Search!" >
 </div>
-
+<br>
+<div><h5 id="loadingText">(Finding Tea..)</h5></div>
 <div id="tableDiv">
     <table id="listTable" class="content-table">
         <thead>
