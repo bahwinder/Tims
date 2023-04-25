@@ -51,7 +51,7 @@
 
            if(name != null && rating != null && city != null){
 
-            fetch('http://localhost:8080/Tims/FillDb?name='+name+'&address='+address+'&city='+city+'&rating='+rating,
+            fetch('http://localhost:8080/Tims_war/FillDb?name='+name+'&address='+address+'&city='+city+'&rating='+rating,
 			{
 				method: "GET",
 				headers : {

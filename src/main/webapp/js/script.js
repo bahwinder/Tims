@@ -60,19 +60,20 @@ function fillTable(searchResult){
 
 	searchResult.forEach(obj => {
 		const json = JSON.parse(obj);
-		tbody.innerHTML += '<tr class="table-row">' +
+		const jsonID = JSON.parse(JSON.stringify( json['_id']));
+		console.log(jsonID[0]);
+		tbody.innerHTML += '<tr class="table-row" id="'+jsonID[0]+'">' +
 			'<td>'+json['name']+'</td>' +
 			'<td>'+json['city']+'</td>' +
 			'<td>'+json['address']+'</td>' +
 			'<td>'+json['rating']+'</td>' +
 
 			'</tr>';
-		console.log(json.name);
-		console.log(getDirectionLink(json['address']));
+
 	})
-	document.querySelector('.table-row').addEventListener('click',function(){
-		console.log(this);
-	});
+	document.querySelectorAll('.table-row').forEach(elem => elem.addEventListener('click',function(){
+		console.log(this.id)
+	}));
 }
 
 

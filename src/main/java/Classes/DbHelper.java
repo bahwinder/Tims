@@ -29,7 +29,7 @@ public class DbHelper {
 
             list.clear();
             g = new Gson();
-            JsonObject object = new JsonObject();
+
             JsonArray array = new JsonArray();
 
             for(Document d : collection.find(query)){
