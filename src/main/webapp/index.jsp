@@ -25,9 +25,9 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Rating</th>
                 <th>City</th>
                 <th>Address</th>
+                <th>Rating</th>
 
             </tr>
         </thead>
