@@ -10,13 +10,13 @@
 </head>
 <body>
 <header>
-    <h3>Find Your Steeped Tea!</h3>
+    <h3>Find Your Tea!</h3>
 
 </header>
 
 <div >
-    <input id="textFieldSearch" type="text" class="input" value = "" placeholder="Enter City..."><br>
-    <input id="btnSearch" type="submit" class="btnSearch" value="Search!" >
+    <input id="textFieldSearch" type="text" class="input" value = "london" placeholder="Enter City..."><br>
+    <button id="btnSearch" class="btnSearch" value="Search!">Find</button>
 </div>
 <br>
 <div><h5 id="loadingText">(Finding Tea..)</h5></div>
